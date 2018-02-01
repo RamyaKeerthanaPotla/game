@@ -1,0 +1,14 @@
+<!DocType html>
+<html>
+<head>
+</head>
+<body style="background-color:linen;">
+<select>
+      <option value="Diet">Diet</option>
+      <option value="Workout">Workout</option>
+      <option value="Sleep">Sleep</option>
+      <option value="Water">Water</option>
+      <option value="Habits">Habits</option>
+</select>
+</body>
+</html>
