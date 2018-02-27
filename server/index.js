@@ -1,4 +1,13 @@
-var express = require('express')
+
+
+
+
+
+
+
+
+
+/*var express = require('express')
 var app = express()
 
 const servername="localhost";
@@ -10,6 +19,8 @@ const simple=require("./simpleController");
 app.use(simple).listen(port);
 
 console.log("running on http://"+servername+":" + port)
+
+*/
 
 
 

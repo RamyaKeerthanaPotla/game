@@ -16,3 +16,4 @@ module.exports = app
         res.write('New Paltz');
         res.end();
     });
+                                          
