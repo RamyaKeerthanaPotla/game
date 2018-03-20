@@ -1,12 +1,27 @@
-# game
-<<<<<<< HEAD
+# Project
 
-##second class
-we are learning about editors
-=======
-Hi,
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
-I'm Ramya Keerthana Potla. I'm from Andhra Pradesh, southern part of India, where my whole schooling is took place. Now, I'm pursuing my masters in computer science in SUNY New Platz. My under graduate degree was in Electronics and Communication,though I knew two programming languages - 1) C-language 2) Java.  I have taken 8 computer classes till date, Programming and Data structures, Computer Systems, Database Design, Data Analytics, Data Science, Database Management Systems, Operating Systems. After all these cousres I'm aware of few more softwares/Languages like R language, RStudio, wyvern, putty, assembly language.
+## Development server
 
-I'm very much intrested to take this course because this teaches me how to work with git,github,angular,html,bootstrap which are very important in this computer world. This course gives me a chance create and devolop an fitness app, which is completely new for me. 
->>>>>>> 1d427d33e413cf6b382ee8d93f17654fd69fb2df
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
