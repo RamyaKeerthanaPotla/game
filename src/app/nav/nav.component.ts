@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   constructor() {
-      var something = new Component({});
 
-      something.animations.find();
+    
    }
 
   ngOnInit() {
