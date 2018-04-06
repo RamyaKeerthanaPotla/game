@@ -1,4 +1,5 @@
 import { appendFile } from "fs";
+var axios = require("axios");
 
 const QuotesStack = [
     "Wisdom is the reward you get for a lifetime of listening when you'd have preferred to talk. -Doug Larson",
@@ -106,22 +107,37 @@ const QuotesStack = [
 
 var iCurrentQuote = 0;
 
-const PicturesStack = [
+var PicturesStack = [
+    https://media3.s-nbcnews.com/j/newscms/2018_13/2353176/180306-stormy-daniels-ac-721p_a9be2253955a79c70f5270b180da2b47.nbcnews-fp-320-280.jpg
+    https://www.experian.com/blogs/insights/wp-content/uploads/2017/07/Blog-student-loan-930x420.jpg
 
 ];
+
+axios.get('https://api.imgflip.com/get_menr')
+     .then(response => PicturesStack = response.data.data.memes)
+
+
 var iCurrentPicture = 0;
-/* 
-class Game {
+
+Function Game {
     Players = [];
-    DealerId = '';
+    DealerId = null;
 
     PlayedQuotes = [];
-    Picture = '';
+    Picture = null;
 
-    GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7);
+    this.GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7);
+    this.FlipPicture = () => this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture + 1) % PicturesStack.length]
+
+    this.SubmitQuote => (text, playerId) => this.PlayedQuotes.push({ Text: text,PlayerId: playerId});
+    this.ChooseQuote = text => { 
+        this.PlayedQuotes.find(x=> x.Text == text).Chosen = true ;//chosing a quote
+        this.DealerId = this.Players[this.DealerId = (this.DealerId +1) % this.P]// we should go to the next dealer
+        }        
+
 }  
 
-*/
+
 
 var GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7);
 
