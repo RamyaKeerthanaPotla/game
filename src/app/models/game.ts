@@ -2,19 +2,17 @@
 
 
 export class Game {
-    MyQuotes: string[] = [
-        "Great minds think alike, but ...",
-        "Axis of Evil",
-        "There are two extremes"
-    ];
+    
 
     Players: User[] = [
-        { Name: 'Ramya Keerthana Potla' },
-        { Name: 'Lara Croft' },
-        { Name: 'Donald Trumo' }
+        { Name: 'Ramya Keerthana Potla', MyQuotes: [] },
+        { Name: 'Lara Croft', MyQuotes: [] },
+        { Name: 'Donald Trumo', MyQuotes: [] }
     ];
     Dealer: string = ' Ramya Keerthana Potla';
-    Picture: string = 'https://media3.s-nbcnews.com/j/msnbc/components/video/201803/tdy_news_welker_trump_180315_1920x1080.nbcnews-ux-1080-600.jpg';
+    Picture: {
+        url: string
+    };
     PlayedQuotes: Quote[] = [
         { Text: "Great minds think alike, but ...", PlayerName: 'Ramya Keerthana Potla', Chosen: false },
         { Text: "That's fake news", PlayerName: 'Donald Trump', Chosen: false }
@@ -23,6 +21,7 @@ export class Game {
 
 export class User {
     Name: string;
+    MyQuotes: string[] = [];
 }
 
 export class Quote {

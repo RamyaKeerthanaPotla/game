@@ -1,4 +1,3 @@
-import { appendFile } from "fs";
 var axios = require("axios");
 
 const QuotesStack = [
@@ -113,33 +112,40 @@ var PicturesStack = [
 
 ];
 
-axios.get('https://api.imgflip.com/get_menr')
-     .then(response => PicturesStack = response.data.data.memes)
-
+axios.get('https://api.imgflip.com/get_memes')
+     .then(response => PicturesStack = response.data.data.memes )
 
 var iCurrentPicture = 0;
 
-Function Game {
-    Players = [];
-    DealerId = null;
+function Game() {
+    this.Players = [];
+    this.DealerId = null;
 
-    PlayedQuotes = [];
-    Picture = null;
+    this.PlayedQuotes = [];
+    this.Picture = null;
 
-    this.GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7);
-    this.FlipPicture = () => this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture + 1) % PicturesStack.length]
+    this.GetQuotes = (playerId) => {
+        if(this.Players.some(x=> x.PlayerId == playerId)){
 
-    this.SubmitQuote => (text, playerId) => this.PlayedQuotes.push({ Text: text,PlayerId: playerId});
+        }esle{
+            this.Players.push({ PlayerId: playerId, Name: playerId });
+        }
+            return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);
+    } 
+    this.FlipPicture = () => this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture + 1) % PicturesStack.length ];
+
+    this.SubmitQuote = (text, playerId) => this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
     this.ChooseQuote = text => { 
-        this.PlayedQuotes.find(x=> x.Text == text).Chosen = true ;//chosing a quote
-        this.DealerId = this.Players[this.DealerId = (this.DealerId +1) % this.P]// we should go to the next dealer
+        this.PlayedQuotes.find(x=> x.Text == text).Chosen = true ; //chosing a quote
+        this.DealerId = this.Players[this.DealerId = (this.DealerId +1) % this.Players.length ]// we should go to the next dealer
         }        
 
-}  
+}   
+
+module.exports = Game;
 
 
+/* var GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7); */
 
-var GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7);
-
-module.exports = app
-      .get('/quotes',(req, res) => res.send(Game.GetQuotes()))
+/* module.exports = app
+      .get('/quotes',(req, res) => res.send(Game.GetQuotes())) * /
