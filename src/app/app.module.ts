@@ -21,7 +21,7 @@ import { GameComponent } from './game/game.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'game', component: GameComponent },

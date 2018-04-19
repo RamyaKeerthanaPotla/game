@@ -24,7 +24,7 @@ app
      .use('/simple', simple)
      .use('/game', game)
      .use('/', (req, res, next) => {
-         res.sendFile(path.join(__dirname, "../dist/index.html");)
+         res.sendFile(path.join(__dirname, "../dist/index.html"));
      })
      .listen(port);
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HTTP } from "@angular/http";
+import { Http } from "@angular/http";
 import { Game, User, Quote } from '../models/game';
 
 @Component({
