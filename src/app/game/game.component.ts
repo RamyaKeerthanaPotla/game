@@ -11,7 +11,7 @@ export class GameComponent implements OnInit {
 
     Model = new Game();
     Me: User;  // Me = new User(); <-- this can alsso be written as Me: user;
-    private _api = "http://localhost:8080/game";
+    private _api = "http://localhost:3000/game";
 
   //constructor( private http: Http) { 
   //  this.Me.Name = "Ramya Keerthana Potla"}
@@ -36,18 +36,34 @@ export class GameComponent implements OnInit {
   submitQuote(e: MouseEvent, text: string, playerName: string){
         e.preventDefault();
 
-        if(this.MyPlayedQuote()) return;
+        if(this.MyPlayedQuote() || this.IAmTheDealer() ) return;
 
         this.http.post(this._api + "/quotes", { Text: text, PlayerId: this.Me.Name })
             .subscribe(data => {
               if(data.json().success){
                 this.Me.MyQuotes.splice(this.Me.MyQuotes.indexOf(text), 1);
               }
-         });
+          }, err => {
+                  console.log(err);   
+          });
 
        //  this.Model.PlayedQuotes.push({ Text: text, PlayerName: this.Me.Name, Chosen: false});
         // this.Model.MyQuotes.splice(this.Model.MyQuotes.indexOf(text), 1);
       }
+
+      chooseQuote(e: MouseEvent, quote: Quote){
+        e.preventDefault();
+        this.http.post(this._api + "/quotes/choose", { Text: quote.Text, PlayerId: this.Me.Name })
+            .subscribe(data=> {
+            }, err=> {
+                console.log(err);
+            });
+      }
+    
+      login(name: string){
+        this.http.get(this._api + "/quotes", { params : { playerId: name } })
+        .subscribe(data=> this.Me =  {Name: name, MyQuotes: data.json() } )
+      } 
 
       MyPlayedQuote = () => this.Model.PlayedQuotes.find( x => x.PlayerId == this.Me.Name );
       ChosenQuote = () => this.Model.PlayedQuotes.find( x => x.Chosen );

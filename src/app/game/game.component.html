@@ -10,6 +10,7 @@
                 <li *ngFor="let quote of Model.MyQuotes" 
                  (click)="submitQuote($event, quote)"  
                  [ngClass]="{ enabled: !MyPlayedQuote() }"
+                 [ngClass]="{ enabled: !MyPlayedQuote() && !IAmTheDealer() }"
                  class="list-group-item" >
                     {{quote}}
                 </li>
