@@ -106,11 +106,7 @@ const QuotesStack = [
 
 var iCurrentQuote = 0;
 
-var PicturesStack = [
-    https://media3.s-nbcnews.com/j/newscms/2018_13/2353176/180306-stormy-daniels-ac-721p_a9be2253955a79c70f5270b180da2b47.nbcnews-fp-320-280.jpg
-    https://www.experian.com/blogs/insights/wp-content/uploads/2017/07/Blog-student-loan-930x420.jpg
-
-];
+var PicturesStack = [];
 
 axios.get('https://api.imgflip.com/get_memes')
      .then(response => PicturesStack = response.data.data.memes )
@@ -132,10 +128,10 @@ function Game() {
        //    return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);
 
        // This is our lohin function. 
-       if(!this.DealerId){
+       if(!this.DealerId){  // if there is no dealer, make me the dealer
            this.DealerId = playerId;
        }
-       if(this.Players.some(x => x.PlayerId == playerId)){
+       if(this.Players.some(x => x.PlayerId == playerId)){  // if there is no player, make me the player
 
        } else{
            this.Players.push({ PlayerId: playerId, Name: playerId, Score: 0 });
@@ -150,7 +146,7 @@ function Game() {
    //  this.SubmitQuote = (text, playerId) => this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
     
    this.SubmitQuote = (text, playerId) => {
-    if(playerId == this.DealerId) throw Error("Dealer can't submit a quote");
+    if(playerId == this.DealerId) throw Error("Dealer can't submit a quote"); // if the player is a dealer throw an error that a dealer cant submit a quote
     this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
 } 
    
@@ -160,8 +156,9 @@ function Game() {
         }     --*/    
     
         this.ChooseQuote = text => {
-            const chosenQuote = this.PlayedQuotes.find(x=> x.Text == text)
-            chosenQuote.Chosen = true;
+           // const chosenQuote = this.PlayedQuotes.find(x=> x.Text == text)
+           // chosenQuote.Chosen = true;
+           this.PlayedQuotes.find(x => x.Text == text).Chosen = true;
             this.Players.find(x=> x.PlayerId == chosenQuote.PlayerId).Score++;
             this.DealerId = this.Players[this.Players.findIndex(x=> x.PlayerId == this.DealerId)  + 1 % this.Players.length ].PlayerId; 
         } 
@@ -174,4 +171,4 @@ module.exports = Game;
 /* var GetQuotes = () => QuoteStack.slice(iCurrentQuote, iCurrentQuote += 7); */
 
 /* module.exports = app
-      .get('/quotes',(req, res) => res.send(Game.GetQuotes())) * /
+      .get('/quotes',(req, res) => res.send(Game.GetQuotes())) */

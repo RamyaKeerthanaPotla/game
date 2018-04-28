@@ -9,7 +9,6 @@
             <ul class="list-group list-group-flush my-quotes">
                 <li *ngFor="let quote of Model.MyQuotes" 
                  (click)="submitQuote($event, quote)"  
-                 [ngClass]="{ enabled: !MyPlayedQuote() }"
                  [ngClass]="{ enabled: !MyPlayedQuote() && !IAmTheDealer() }"
                  class="list-group-item" >
                     {{quote}}
@@ -51,6 +50,7 @@
                 <li *ngFor="let player of Model.Players" class="list-group-item">
                     <img style="height: 16px; width: 16px" class="rounded">
                     {{player.Name}}
+                    
                 </li>
             </ul>
         </div>
