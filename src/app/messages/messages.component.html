@@ -1,6 +1,6 @@
 <div id="messages">
   <div class="alert alert-{{message.text}}  " *ngFor="let message of Messages.Messages; let i = index ">
     <button class="close" (click)="delete(i)">times;</button>
-    {{Messages.Text}} 
+    {{message.Text}} 
   </div>
 </div>

@@ -1,7 +1,5 @@
-<div class="row" *ngIf="!Me">
-    <input #Name /><button (click)="login(Name.value)" >Login</button>
-</div>
-<div class="row" *ngIf="Me">
+<div class='row'></div>
+
     <div class="col-md-4">
         
         <div class="card" >
@@ -38,7 +36,9 @@
             <div class="card">
                 <img class="card-img" *ngIf="Model.Picture" [src]="Model.Picture.url" />
                 <div class="card-img-overlay" style="text-align: center">
-                    <button class ="btn btn-success btn-lg" (click)="flipPicture($event)">Flip the Picture</button>
+                    <button class ="btn btn-success btn-lg" 
+                    (click)="flipPicture($event)"
+                    *ngIf="IAmTheDealer() && (Model.PlayedQuotes.length == 0 || ChosenQuote())">Flip the Picture</button>
                 </div>
             </div>
     </div>
@@ -50,6 +50,9 @@
                 <li *ngFor="let player of Model.Players" class="list-group-item">
                     <img style="height: 16px; width: 16px" class="rounded">
                     {{player.Name}}
+                    <i class="badge float-right" [ngClass]="player.PlayerId == Model.DealerId ? 'badge-warning' : 'badge-info'">
+                        {{player.Score}}
+                    </i>
                     
                 </li>
             </ul>
